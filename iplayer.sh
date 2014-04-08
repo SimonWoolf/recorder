@@ -14,7 +14,12 @@ zenity = Popen(['zenity',
 
 url = zenity.communicate()[0].split("/")
 
-pid = url[url.index('episode') + 1]
+if 'episode' in url:
+    pid = url[url.index('episode') + 1]
+elif 'programmes' in url:
+    pid = url[url.index('programmes') + 1]
+
 
 #call("gnome-terminal --hide-menubar -x get_iplayer --modes=flashaachigh,flashaac,flashaacstd,flashaacstd1,flashaudio,flashhigh,flashstd,flashnormal --force --output ~/Music --pid " + pid + " --command 'ffmpeg -ab 192k -i <filename> `echo <filename> | sed s/aac/mp3/` && rm <filename>'", shell=True)
-call("gnome-terminal --hide-menubar -x get_iplayer --modes=flashaachigh,flashaac,flashaacstd,flashaacstd1,flashaudio,flashhigh,flashstd,flashnormal --force --output ~/Music --pid " + pid + " --aactomp3 --mp3vbr 2", shell=True)
+call("gnome-terminal --hide-menubar -x get_iplayer --modes=flashaachigh,flashaac,flashaacstd,flashaacstd1,flashaudio,flashhigh,flashstd,flashnormal,flashaaclow --force --output ~/Music --pid " + pid, shell=True)
+#Removed conversion to mp3
