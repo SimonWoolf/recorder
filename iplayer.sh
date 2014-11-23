@@ -19,4 +19,4 @@ if 'episode' in url:
 elif 'programmes' in url:
     pid = url[url.index('programmes') + 1]
 
-call("xfce4-terminal -x get_iplayer --modes=flashaachigh,flashaac,flashaacstd,flashaacstd1,flashaudio,flashhigh,flashstd,flashnormal,flashaaclow --force --output ~/Music --file-prefix '<longname>-<senum>' --pid " + pid, shell=True)
+call("xfce4-terminal -x get_iplayer --modes=flashaachigh,flashaac,flashaacstd,flashaacstd1,flashaudio,flashhigh,flashstd,flashnormal,flashaaclow --force --output ~/Music --file-prefix '<title> - <firstbcast>' --pid " + pid, shell=True)
